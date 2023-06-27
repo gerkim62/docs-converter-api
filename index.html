@@ -20,7 +20,7 @@
         const formData = new FormData();
         formData.append("files", file);
         console.log(formData);
-        fetch(apiURLLocal, {
+        fetch(apiURL, {
           method: "POST",
           body: formData,
         })
