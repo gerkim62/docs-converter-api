@@ -2,7 +2,7 @@ import express from "express";
 import multer from "multer";
 import cors from "cors";
 import { parseOfficeAsync } from "officeparser";
-import  getTextFromPDF  from "./getTextFromPDF.js";
+import  {getTextFromPDF}  from "./getTextFromPDF.js";
 
 const parsers = [
   { ext: ["pdf"], parser: getTextFromPDF },
