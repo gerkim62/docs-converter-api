@@ -4,6 +4,8 @@ import cors from "cors";
 import { parseOfficeAsync } from "officeparser";
 import { getTextFromPDF } from "./getTextFromPDF.js";
 
+import mime from "mime";
+
 const parsers = [
   { ext: ["pdf"], parser: getTextFromPDF },
   {
@@ -12,7 +14,13 @@ const parsers = [
   },
 ];
 
-const supportedExtensions = parsers.flatMap(({ ext }) => ext);
+const supportedExtensions = parsers
+  .flatMap(({ ext }) => ext)
+  .map((ext) => {
+    return { ext, mime: mime.getType(ext) };
+  });
+
+console.log(supportedExtensions);
 
 function getFileExtension(filename) {
   return filename.split(".").pop().toLowerCase();
@@ -30,7 +38,10 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 app.get("/", (req, res) => {
-  res.send("get text from document " + supportedExtensions.join(", "));
+  res.send(
+    "get text from document " +
+      supportedExtensions.map((ext) => ext.ext).join(", ")
+  );
 });
 
 //supported extensions
