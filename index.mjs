@@ -77,7 +77,10 @@ app.post("/upload", upload.array("files"), async (req, res) => {
           const data = await parser.parser(file.buffer);
 
           const docOutput = await splitter.splitDocuments([
-            new Document({ pageContent: data }),
+            new Document({
+              pageContent: data,
+              metadata: { filename: file.originalname },
+            }),
           ]);
 
           return {
