@@ -9,7 +9,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 const splitter = new RecursiveCharacterTextSplitter({
   chunkSize: 1500,
-  chunkOverlap: 200,
+  chunkOverlap: 20,
 });
 
 import mime from "mime";
@@ -64,7 +64,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
         const fileExtension = getFileExtension(file.originalname);
 
         if (!isFormatSupported(fileExtension)) {
-          console.log("Unsupported format:", fileExtension);
+          //console.log("Unsupported format:", fileExtension);
           return {
             filename: file.originalname,
             text: null,
@@ -90,7 +90,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
             docOutput,
           };
         } catch (err) {
-          console.log("Error parsing file:", err);
+          //console.log("Error parsing file:", err);
           return {
             filename: file.originalname,
             text: null,
@@ -101,10 +101,10 @@ app.post("/upload", upload.array("files"), async (req, res) => {
     );
 
     res.json(processedFiles);
-    console.log("Data sent");
-    console.log(processedFiles);
+    //console.log("Data sent");
+    //console.log(processedFiles);
   } catch (error) {
-    console.error("Error uploading files:", error);
+    //console.error("Error uploading files:", error);
     res.status(500).send("Error uploading files");
   }
 });
