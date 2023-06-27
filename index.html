@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Upload Test</title>
+  </head>
+  <body>
+    <h1>File Upload Test</h1>
+    <input name="files" type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload</button>
+
+    <script>
+      function uploadFile() {
+        // console.log(e);
+        const fileInput = document.getElementById("fileInput");
+        const file = fileInput.files[0];
+
+        const formData = new FormData();
+        formData.append("files", file);
+
+        fetch("http://localhost:3000/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            alert("File uploaded successfully!");
+          })
+          .catch((error) => {
+            console.error(error);
+            // alert("Error uploading file.");
+          });
+      }
+    </script>
+  </body>
+</html>
