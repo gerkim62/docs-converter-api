@@ -8,7 +8,7 @@ import { Document } from "langchain/document";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 1000,
+  chunkSize: 1500,
   chunkOverlap: 200,
 });
 

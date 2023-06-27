@@ -1,79 +1,133 @@
 [
   {
-    "filename": "PROCESS MANAGEMENT (1) (2).pptx",
+    "filename": "PROCESS MANAGEMENT (1) (1).pptx",
     "error": null,
     "docOutput": [
       {
         "pageContent": "A program which is going to be picked up by the OS into the main memory is called a new process. 1. New The time at which the process enters into the ready queue is called the arrival time. 1. Arrival Time Various Times related to the Process When the process needs some IO operation in order to complete its execution, OS changes the state of the process from running to waiting.  The  context (PCB) associated with the process gets stored on the waiting queue which will be used by the Processor when the process finishes the IO. 3. Waiting Queue Ready queue is maintained in primary memory.  The  short term scheduler picks the job from the ready queue and dispatch to the CPU for the execution. 2. Ready Queue In starting, all the processes get stored in the job queue .   It is maintained in the secondary memory.  The  long term scheduler (Job scheduler) picks some of the jobs and put them in the primary memory. 1. Job Queue The total amount of time required by the CPU to execute the whole",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "secondary memory.  The  long term scheduler (Job scheduler) picks some of the jobs and put them in the primary memory. 1. Job Queue The total amount of time required by the CPU to execute the whole process is called the Burst Time.  This  does not include the waiting time.  It  is confusing to calculate the execution time for a process even before executing it hence the scheduling problems based on the burst time cannot be implemented in reality. 2. Burst Time The Time at which the process enters into the completion state or the time at which the process completes its execution, is called completion time. 3. Completion Time The total amount of time spent by the process from its arrival to its completion, is called Turnaround time. 4. Turnaround time The Operating system maintains a process control block during the lifetime of the process.  The  Process control block is deleted when the process is terminated or killed.  There  is the following information which is saved in the process",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "control block during the lifetime of the process.  The  Process control block is deleted when the process is terminated or killed.  There  is the following information which is saved in the process control block and is changing with the state of the process. What is saved in the Process Control Block? In Multiprogramming systems, the Operating system schedules the processes on the CPU to have the maximum utilization of it and this procedure is called CPU scheduling.  The  Operating System uses various scheduling algorithm to schedule the processes. This  is a task of the short term scheduler to schedule the CPU for the number of processes present in the Job Pool .   Whenever the running process requests some IO operation then the short term scheduler saves the current context of the process (also called PCB) and changes its state from running to waiting .   During the time, process is in waiting state; the Short term scheduler picks another process from the ready queue and assigns the",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "(also called PCB) and changes its state from running to waiting .   During the time, process is in waiting state; the Short term scheduler picks another process from the ready queue and assigns the CPU to this process.  This  procedure is called context switching. In the  uniprogrammming  systems like MS DOS, when a process waits for any I/O operation to be done, the CPU remains  idle.  This  is an overhead since it wastes the time and causes the problem of starvation .   However, In Multiprogramming systems, the CPU doesn't remain idle during the waiting time of the Process and it starts executing other processes.  Operating  System has to define which process the CPU will be given. CPU Scheduling The difference between the arrival time and the time at which the process first gets the CPU is called Response Time. 6. Response Time The Total amount of time for which the process waits for the CPU to be assigned is called waiting time. 5. Waiting Time The Operating system manages various",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "is called Response Time. 6. Response Time The Total amount of time for which the process waits for the CPU to be assigned is called waiting time. 5. Waiting Time The Operating system manages various types of queues for each of the process states.  The  PCB related to the process is also stored in the queue of the same state .   If the Process is moved from one state to another state then its PCB is also unlinked from the corresponding queue and added to the other state queue in which the transition is made. Process Queues Medium term scheduler takes care of the swapped out processes . If  the running state processes needs some IO time for the completion then there is a need to change its state from running to waiting. Medium  term scheduler is used for this purpose.  It  removes the process from the running state to make room for the other processes.  Such  processes are the swapped out processes and this procedure is called swapping.  The  medium term scheduler is responsible for",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "from the running state to make room for the other processes.  Such  processes are the swapped out processes and this procedure is called swapping.  The  medium term scheduler is responsible for suspending and resuming the processes. It  reduces the degree of multiprogramming . The  swapping is necessary to have a perfect mix of processes in the ready queue. 3. Medium term scheduler Short term scheduler is also known as CPU scheduler. It selects one of the Jobs from the ready queue and dispatch to the CPU for the execution. A  scheduling algorithm is used to select which job is going to be dispatched for the execution.  The  Job of the short term scheduler can be very critical in the sense that if it selects job whose CPU burst time is very high then all the jobs after that, will have to wait in the ready queue for a very long time. This  problem is called starvation which may arise if the short term scheduler makes some mistakes while selecting the job. 2. Short term scheduler Instead",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "in the ready queue for a very long time. This  problem is called starvation which may arise if the short term scheduler makes some mistakes while selecting the job. 2. Short term scheduler Instead of removing the process from the ready queue, it's better to remove the blocked process which is waiting for some resources in the main memory . Since  it is already waiting for some resource to get available hence it is better if it waits in the secondary memory and make room for the higher priority process.  These  processes complete their execution once the main memory gets available and their wait is finished. 7. Suspend wait A process in the ready state, which is moved to secondary memory from the main memory due to lack of the resources (mainly primary memory) is called in the suspend ready state. If  the main memory is full and a higher priority process comes for the execution then the OS have to make the room for the process in the main memory by throwing the lower priority process",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "state. If  the main memory is full and a higher priority process comes for the execution then the OS have to make the room for the process in the main memory by throwing the lower priority process out into the secondary memory.  The  suspend ready processes remain in the secondary memory until the main memory gets available. 6. Suspend ready When a process finishes its execution, it comes in the termination state.  All  the context of the process (Process Control Block) will also be deleted the process will be terminated by the Operating system. 5. Completion or termination From the Running state, a process can make the transition to the block or wait state depending upon the scheduling algorithm or the intrinsic behavior of the process. When  a process waits for a certain resource to be assigned or for the input from the user then the OS move this process to the block or wait state and assigns the CPU to the other processes. 4. Block or wait One of the processes from the ready state",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "assigned or for the input from the user then the OS move this process to the block or wait state and assigns the CPU to the other processes. 4. Block or wait One of the processes from the ready state will be chosen by the OS depending upon the scheduling algorithm .   Hence, if we have only one CPU in our system, the number of running processes for a particular time will always be one.  If  we have n processors in the system then we can have n processes running simultaneously. 3. Running Whenever a process is created, it directly enters in the ready state, in which, it waits for the CPU to be assigned.  The  OS picks the new processes from the secondary memory and put all of them in the main memory. The processes which are ready for the execution and reside in the main memory are called ready state processes .   There can be many processes present in the ready state. 2. Ready Operations on the Process Once the process is created, it will be ready and come into the ready queue (main",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "ready state processes .   There can be many processes present in the ready state. 2. Ready Operations on the Process Once the process is created, it will be ready and come into the ready queue (main memory) and will be ready for the execution. 1. Creation Out of the many processes present in the ready queue, the Operating system chooses one process and start executing it.  Selecting  the process which is to be executed next, is known as scheduling. 2. Scheduling If the job scheduler chooses more IO bound processes then all of the jobs may reside in the blocked state all the time and the CPU will remain idle most of the time .   This will reduce the degree of Multiprogramming.  Therefore , the Job of long term scheduler is very critical and may affect the system for a very long time. Long term scheduler is also known as job scheduler.  It  chooses the processes from the pool (secondary memory) and keeps them in the ready queue maintained in the primary memory. Long  Term scheduler",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "term scheduler is also known as job scheduler.  It  chooses the processes from the pool (secondary memory) and keeps them in the ready queue maintained in the primary memory. Long  Term scheduler mainly controls the degree of Multiprogramming .   The purpose of long term scheduler is to choose a perfect mix of IO bound and CPU bound processes among the jobs present in the pool. 1. Long term scheduler Process Schedulers Once the purpose of the process gets over then the OS will kill the process.  The Context of the process (PCB) will be deleted and the process gets terminated by the Operating system. 4. Deletion/killing Once the process is scheduled for the execution, the processor starts executing it.  Process  may come to the blocked or wait state during the execution then in that case the processor starts executing the other processes. 3. Execution In Multiprogramming, if the long term scheduler picks more I/O bound processes then most of the time, the CPU remains  idle.  The  task",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "processor starts executing the other processes. 3. Execution In Multiprogramming, if the long term scheduler picks more I/O bound processes then most of the time, the CPU remains  idle.  The  task of Operating system is to optimize the utilization of resources. If  most of the running processes change their state from running to waiting then there may always be a possibility of deadlock in the system .   Hence to reduce this overhead, the OS needs to schedule the jobs to get the optimal utilization of CPU and to avoid the possibility to deadlock Why do we need Scheduling? There are various algorithms which are used by the Operating System to schedule the processes on the processor in an efficient way. Scheduling Algorithms Maximum CPU utilization Fare allocation of CPU Maximum throughput Minimum turnaround time Minimum waiting time Minimum response time The Purpose of a Scheduling algorithm Every process has its own set of registers which are used to hold the data which is generated",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "Minimum turnaround time Minimum waiting time Minimum response time The Purpose of a Scheduling algorithm Every process has its own set of registers which are used to hold the data which is generated during the execution of the process. 5. General Purpose Registers Every process has its own priority. The process with the highest priority among the processes gets the CPU first. This is also stored on the process control block. 4. Priority The Process, from its creation to the completion, goes through various states which are new, ready, running and waiting. We will discuss about them later in detail. 3. Process State A program counter stores the address of the last instruction of the process on which the process was suspended .   The CPU uses this address when the execution of this process is resumed. 2. Program counter The process, from its creation to completion, passes through various states. The minimum number of states is five. The names of the states are not standardized although",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "is resumed. 2. Program counter The process, from its creation to completion, passes through various states. The minimum number of states is five. The names of the states are not standardized although the process may be in one of the following states during execution. The Attributes of the process are used by the Operating System to create the process control block (PCB) for each of them .   This is also called context of the process.  Attributes  which are stored in the PCB are described below. Attributes of a process The operating system is responsible for the following activities in connection with Process Management Scheduling  processes and threads on the  CPUs. Creating  and deleting both user and system processes . Suspending and resuming  processes. Providing  mechanisms for process  synchronization. Providing  mechanisms for process communication. A Program does nothing unless its instructions are executed by a CPU.  A  program in execution is called a process. In order to",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "synchronization. Providing  mechanisms for process communication. A Program does nothing unless its instructions are executed by a CPU.  A  program in execution is called a process. In order to accomplish its task, process needs the computer resources. There  may exist more than one process in the system which may require the same resource at the same time.  Therefore , the operating system has to manage all the processes and the resources in a convenient and efficient way. Some  resources may need to be executed by one process at one time to maintain the consistency otherwise the system can become inconsistent and deadlock may occur. Introduction PROCESS MANAGEMENT During the Execution, Every process uses some files which need to be present in the main memory. OS also maintains a list of open files in the PCB. 6. List of open files When a process is created, a unique id is assigned to the process which is used for unique identification of the process in the system. 1. Process ID It",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "open files in the PCB. 6. List of open files When a process is created, a unique id is assigned to the process which is used for unique identification of the process in the system. 1. Process ID It is the simplest algorithm to implement.  The  process with the minimal arrival time will get the CPU first.  The  lesser the arrival time, the sooner will the process  get  the CPU .   It is the non-preemptive type of scheduling. 1. First Come First Serve In the Round Robin scheduling algorithm, the OS defines a time quantum (slice ).   All the processes will get executed in the cyclic way .   Each of the process will get the CPU for a small amount of time (called time quantum) and then get back to the ready queue to wait for its next turn . It  is a preemptive type of scheduling. 2. Round Robin The job with the shortest burst time will get the CPU first.  The  lesser the burst time, the sooner will the process get the CPU.  It  is the non-preemptive type of scheduling. 3. Shortest Job",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "Robin The job with the shortest burst time will get the CPU first.  The  lesser the burst time, the sooner will the process get the CPU.  It  is the non-preemptive type of scheduling. 3. Shortest Job First It is the preemptive form of SJF.  In  this algorithm, the OS schedules the Job according to the remaining time of the execution. 4. Shortest remaining time first OS also maintain the list of all open devices which are used during the execution of the process. 7. List of open devices In this scheduling Algorithm, the process with highest response ratio will be scheduled next . This  reduces the starvation in the system. 6. Highest Response Ratio Next Process States In this algorithm, the priority will be assigned to each of the processes.  The  higher the priority, the sooner will the process get the CPU .   If the priority of the two processes is same then they will be scheduled according to their arrival time. 5. Priority based scheduling There are two types of scheduling:",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       },
       {
         "pageContent": "the process get the CPU .   If the priority of the two processes is same then they will be scheduled according to their arrival time. 5. Priority based scheduling There are two types of scheduling: preemptive scheduling and non-preemptive scheduling .  Preemptive  scheduling allows a running process to be interrupted by a high priority process, whereas in non-preemptive scheduling, any new process has to wait until the running process finishes its CPU cycle. State Diagram I/ O bound  refers to a condition in which the time it takes to complete a computation is determined principally by the period spent waiting for input/output operations to be completed. CPU Bound  means the rate at which process progresses is limited by the speed of the  CPU . 49",
-        "metadata": { "loc": { "lines": { "from": 1, "to": 1 } } }
+        "metadata": {
+          "filename": "PROCESS MANAGEMENT (1) (1).pptx",
+          "loc": { "lines": { "from": 1, "to": 1 } }
+        }
       }
     ]
   }
