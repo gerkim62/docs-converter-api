@@ -4,6 +4,14 @@ import cors from "cors";
 import { parseOfficeAsync } from "officeparser";
 import { getTextFromPDF } from "./getTextFromPDF.js";
 
+import { Document } from "langchain/document";
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+
+const splitter = new RecursiveCharacterTextSplitter({
+  chunkSize: 1000,
+  chunkOverlap: 1,
+});
+
 import mime from "mime";
 
 const parsers = [
@@ -19,8 +27,6 @@ const supportedExtensions = parsers
   .map((ext) => {
     return { ext, mime: mime.getType(ext) };
   });
-
-
 
 function getFileExtension(filename) {
   return filename.split(".").pop().toLowerCase();
@@ -70,7 +76,16 @@ app.post("/upload", upload.array("files"), async (req, res) => {
           const parser = parsers.find((p) => p.ext.includes(fileExtension));
           const data = await parser.parser(file.buffer);
 
-          return { filename: file.originalname, text: data, error: null };
+          const docOutput = await splitter.splitDocuments([
+            new Document({ pageContent: data }),
+          ]);
+
+          return {
+            filename: file.originalname,
+            // text: data,
+            error: null,
+            docOutput,
+          };
         } catch (err) {
           console.log("Error parsing file:", err);
           return {
@@ -84,6 +99,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
 
     res.json(processedFiles);
     console.log("Data sent");
+    console.log(processedFiles);
   } catch (error) {
     console.error("Error uploading files:", error);
     res.status(500).send("Error uploading files");

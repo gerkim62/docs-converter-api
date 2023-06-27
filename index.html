@@ -9,6 +9,9 @@
     <button onclick="uploadFile()">Upload</button>
 
     <script>
+      const apiURL = "https://docs-converter.onrender.com/upload";
+      const apiURLLocal = "http://localhost:3000/upload";
+
       function uploadFile() {
         // console.log(e);
         const fileInput = document.getElementById("fileInput");
@@ -16,8 +19,8 @@
 
         const formData = new FormData();
         formData.append("files", file);
-
-        fetch("https://docs-converter.onrender.com/upload", {
+        console.log(formData);
+        fetch(apiURLLocal, {
           method: "POST",
           body: formData,
         })
