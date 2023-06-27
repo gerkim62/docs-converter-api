@@ -20,7 +20,7 @@ const supportedExtensions = parsers
     return { ext, mime: mime.getType(ext) };
   });
 
-console.log(supportedExtensions);
+
 
 function getFileExtension(filename) {
   return filename.split(".").pop().toLowerCase();
