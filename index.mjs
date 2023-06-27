@@ -30,12 +30,12 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 app.get("/", (req, res) => {
-  res.send("get text from document" + supportedExtensions.join(", "));
+  res.send("get text from document " + supportedExtensions.join(", "));
 });
 
 //supported extensions
 app.get("/supported", (req, res) => {
-  res.send(supportedExtensions);
+  res.json(supportedExtensions);
 });
 
 app.post("/upload", upload.array("files"), async (req, res) => {
@@ -71,7 +71,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
       })
     );
 
-    res.send(processedFiles);
+    res.json(processedFiles);
     console.log("Data sent");
   } catch (error) {
     console.error("Error uploading files:", error);
