@@ -14,11 +14,27 @@ const splitter = new RecursiveCharacterTextSplitter({
 
 import mime from "mime";
 
+import { getText } from "any-text";
+
 const parsers = [
   { ext: ["pdf"], parser: getTextFromPDF },
   {
     ext: ["docx", "xlsx", "pptx", "odt", "odp", "ods"],
     parser: parseOfficeAsync,
+  },
+  {
+    // DOC
+    // DOCX
+    // DOT
+    // PDF
+    // CSV
+    // TXT
+    // XLS
+    // XLSX
+    // JSON
+    //we dont repeat already supported extensions
+    ext: ["doc", "dot", "csv", "txt", "xls", "json"],
+    parser: getText,
   },
 ];
 
