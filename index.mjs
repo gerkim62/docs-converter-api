@@ -34,9 +34,28 @@ const parsers = [
     // JSON
     //we dont repeat already supported extensions
     ext: ["doc", "dot", "csv", "txt", "xls", "json"],
-    parser: getText,
+    parser: extractUsingGetText,
   },
 ];
+
+async function extractUsingGetText(fileBuffer) {
+  try {
+    // Save the file from the buffer
+    const tempFilePath = "./temp-file.txt";
+    await writeFileAsync(tempFilePath, fileBuffer);
+
+    // Get the text content from the file
+    const text = await reader.getText(tempFilePath);
+
+    // Clear the temporary file
+    unlinkAsync(tempFilePath);
+
+    return text;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
 
 const supportedExtensions = parsers
   .flatMap(({ ext }) => ext)
