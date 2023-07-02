@@ -17,7 +17,8 @@
     "office-text-extractor": "^2.0.0",
     "officeparser": "^3.3.0",
     "pdfjs-dist": "^3.7.107",
-    "unzipper": "^0.10.14"
+    "unzipper": "^0.10.14",
+    "any-text": "^1.2.0"
   },
   "devDependencies": {
     "any-text": "^1.2.0"
