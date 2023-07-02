@@ -4,6 +4,8 @@ import cors from "cors";
 import { parseOfficeAsync } from "officeparser";
 import { getTextFromPDF } from "./getTextFromPDF.js";
 
+import { writeFileSync, unlinkSync } from "fs";
+
 import { Document } from "langchain/document";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
@@ -42,13 +44,13 @@ async function extractUsingGetText(fileBuffer) {
   try {
     // Save the file from the buffer
     const tempFilePath = "./temp-file.txt";
-    await writeFileAsync(tempFilePath, fileBuffer);
+    writeFileSync(tempFilePath, fileBuffer);
 
     // Get the text content from the file
-    const text = await reader.getText(tempFilePath);
+    const text = await getText(tempFilePath);
 
     // Clear the temporary file
-    unlinkAsync(tempFilePath);
+    unlinkSync(tempFilePath);
 
     return text;
   } catch (error) {
