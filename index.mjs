@@ -40,10 +40,10 @@ const parsers = [
   },
 ];
 
-async function extractUsingGetText(fileBuffer) {
+async function extractUsingGetText(fileBuffer, filename) {
   try {
     // Save the file from the buffer
-    const tempFilePath = "./temp-file.txt";
+    const tempFilePath = `./${filename}`;
     writeFileSync(tempFilePath, fileBuffer);
 
     // Get the text content from the file
@@ -111,7 +111,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
 
         try {
           const parser = parsers.find((p) => p.ext.includes(fileExtension));
-          const data = await parser.parser(file.buffer);
+          const data = await parser.parser(file.buffer, file.originalname);
 
           const docOutput = await splitter.splitDocuments([
             new Document({
