@@ -106,6 +106,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
             filename: file.originalname,
             text: null,
             error: "Unsupported format",
+            docOutput: [],
           };
         }
 
@@ -132,6 +133,7 @@ app.post("/upload", upload.array("files"), async (req, res) => {
             filename: file.originalname,
             text: null,
             error: "Error parsing file",
+            docOutput: [],
           };
         }
       })
