@@ -10,8 +10,8 @@ import { Document } from "langchain/document";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 300,
-  chunkOverlap: 20,
+  chunkSize: 650,
+  chunkOverlap: 100,
 });
 
 import mime from "mime";
