@@ -12,7 +12,7 @@ async function getTextFromPDF(path) {
       return item.str;
     });
 
-    result += `***page ${pageNumber}***\n${strings.join(" ")}\n`;
+    result += `\n${strings.join(" ")}\n`;
   }
 
   return result;
